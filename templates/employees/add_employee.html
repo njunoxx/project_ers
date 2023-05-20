@@ -1,0 +1,23 @@
+{% extends 'layouts/master.html' %}
+
+{% block title%}
+    Employee - Add
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class = "row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="{% url 'emp-add' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="submit" class="btn btn-primary" value="CREATE">
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div.class>
+{% endblock %}

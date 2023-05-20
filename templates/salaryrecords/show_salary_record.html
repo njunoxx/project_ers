@@ -1,0 +1,25 @@
+{% extends 'layouts/master.html' %}
+{% block title %}
+    salary - Show
+{% endblock %}
+
+{% block content %}
+    <h1> This is show salary page</h1>
+    <a href="{% url 'sal-index' %}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"> BACK</i></a>
+    <hr>
+    <div class="col d-flex justify-content-center">
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Salary Details:</h5>
+              <p class="card-text">Employee Name: {{data.employee}}</p>
+              <p class="card-text">Salary Amount: {{data.salary_amount}}</p>
+              <p class="card-text">Allowance: {{data.allowance}}</p>
+              <p class="card-text">TDS in Percent Amount: {{data.tds_in_percent_amount}}</p>
+              <p class="card-text">Start Date: {{data.start_date}}</p>
+              <p class="card-text">End Date: {{data.end_date}}</p>
+              <p class="card-text">Status: {{data.status}}</p>
+            </div>
+        </div>
+    </div>  
+
+{% endblock %}

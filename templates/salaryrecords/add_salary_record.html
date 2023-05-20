@@ -1,0 +1,23 @@
+{% extends 'layouts/master.html' %}
+{% block title %}
+    salary - Add
+{% endblock %}
+
+{% block content %}
+<br>
+<a href="{% url 'sal-index' %}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> BACK</a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="{% url 'sal-add' %}" method="post" >
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <input type="submit" class="btn btn-primary" value="CREATE">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

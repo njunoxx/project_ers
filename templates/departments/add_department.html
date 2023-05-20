@@ -1,0 +1,26 @@
+{% extends 'layouts/master.html' %}
+
+{% block title%}
+    Department - Add
+{% endblock %}
+
+{% block content %}
+<h1>This is Department Add Page</h1>
+<hr>
+<a href="{% url 'dep-index' %}" class="btn btn-primary">BACK</a>
+<div class="container">
+    <div class = "row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="{% url 'dep-add' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="submit" class="btn btn-primary" value="CREATE">
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div.class>
+{% endblock %}

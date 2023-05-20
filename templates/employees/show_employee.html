@@ -1,0 +1,31 @@
+{% extends 'layouts/master.html' %}
+
+{% block title%}
+    Employee - Show
+{% endblock %}
+
+{% block content %}
+<h1>This is employee detail page</h1>
+<a href="{% url 'emp-index' %}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back</a>
+<form>
+    <div class="col d-flex justify-content-center" style="border-color: green;">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><b>Employee Details:</b></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><b>{{ data.full_name }}</b></h6>
+          <p class="card-text"><b>Email:</b> {{ data.email }}</p>
+          <p class="card-text"><b>Contact:</b> {{ data.contact }}</p>
+          <p class="card-text"><b>DOB:</b> {{ data.dob }}</p>
+          <p class="card-text"><b>Join Date:</b> {{ data.join_date }}</p>
+          <p class="card-text"><b>Gender:</b> {{ data.gender }}</p>
+          <p class="card-text"><b>Address:</b> {{ data.address }}</p>
+          <p class="card-text"><b>Blood Group:</b> {{ data.blood_group }}</p>              
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+    </div> 
+    </div>   
+</form>
+</div>
+
+{% endblock %}

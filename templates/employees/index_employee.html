@@ -1,0 +1,59 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}
+    Employee - List
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+{% include "partials/_message.html" %}    
+
+<h1>This is employee list page</h1>
+<a href="{% url 'emp-add' %}" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add</a>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <table class="table table-stripped-columns table-hover">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th colspan="3">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for val in data %}
+                <tr>
+                    <td>{{forloop.counter }}</td>
+                    <td>{{val.full_name }}</td>
+                    <td>{{ val.contact }}</td>
+                    <td>{{ val.email }}</td>
+                    <td>{{val.department }}</td>
+                    <td><a href="{% url 'emp-edit' val.id %}"><i class="fa-solid fa-pencil"></i></a></td>
+                    <td><a href="{% url 'emp-show' val.id %}"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="{% url 'emp-delete' val.id %}"><i class="fa-solid fa-trash"></i></a></td>
+        
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+        <h4>Filter by Name</h4>
+        <a href="{% url 'emp-index' %}" class="btn btn-sm btn-primary mb-2">Clear</a>
+        {% for val in data %}
+            <form action="{% url 'emp-index' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="full_name" value="{{ val.full_name }}">
+                <input type="submit" value="{{ val.full_name }}" class="btn btn-sm btn-info mb-2">
+
+            </form>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock %}

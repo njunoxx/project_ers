@@ -1,0 +1,20 @@
+{% extends 'layouts/master.html' %}
+{% block title %}
+    department - Show
+{% endblock %}
+
+{% block content %}
+    <h1> This is show department page</h1>
+    <hr>
+    <a href="{% url 'dep-index' %}" class="btn btn-primary">BACK</a>
+    <div class="col d-flex justify-content-center">
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Department Details:</h5>
+          <p class="card-text">ID: {{data.id}}</p>
+          <p class="card-text">Depatment Name: {{data.department_name}}</p>
+          <p class="card-text">Short Name: {{data.short_name}}</p>
+        </div>
+    </div>
+    </div>    
+{% endblock %}
